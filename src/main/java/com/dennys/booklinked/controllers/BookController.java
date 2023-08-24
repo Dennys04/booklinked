@@ -1,7 +1,7 @@
 package com.dennys.booklinked.controllers;
 
-import com.dennys.booklinked.models.LibroDTO;
-import com.dennys.booklinked.services.LibroServicio;
+import com.dennys.booklinked.models.BookDTO;
+import com.dennys.booklinked.services.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +14,13 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/books")
-public class LibroController {
+public class BookController {
 
-    private final LibroServicio libroServicio;
+    private final BookService bookService;
 
     @GetMapping
-    public ResponseEntity<List<LibroDTO>> getAllLibros(){
-        List<LibroDTO> libros = libroServicio.getAllLibros();
+    public ResponseEntity<List<BookDTO>> getAllBooks(){
+        List<BookDTO> libros = bookService.getAllBooks();
         return new ResponseEntity<>(libros, HttpStatus.OK);
     }
 }
